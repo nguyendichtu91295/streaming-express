@@ -1,0 +1,56 @@
+<h1>{{title}}</h1>
+<p>Welcome to {{title}}</p>
+<p class="">Current path: <strong>{{currentPath}}</strong></p>
+<div class="popup-backdrop js-popup-backdrop">
+    <div class="popup-content js-popup-content">
+        <div class="popup-control-wrapper">
+            <span class="popup-file-name js-popup-file-name"></span>
+            <a href="#" class="popup-close js-popup-close">&times;</a>
+        </div>
+        {{!-- <video class="js-video popup-video" src=""></video>
+        <img class="js-image popup-image" src=""> --}}
+    </div>
+</div>
+{{#if err}}
+    <h1>{{err}}</h1>
+{{else}}
+
+    <div class="button">
+        {{#if prevPath}}
+            <a class="button-link" href="/folder?path={{prevPath}}" />
+        {{else}}
+            <a class="button-link js-button-link" href="/" />
+        {{/if}}
+        <i class="fas fa-chevron-left"></i>
+    </div>
+    </a>
+    <ul class="list">
+        {{#each data}}
+
+            {{#if isDirectory }}
+                <a class="item-link" href="/folder?path={{path}}" data-path="{{path}}">
+                    <li class="item">
+                        <div class="image-wrapper">
+                            <img class="folder--icon" src="https://cdn1.iconfinder.com/data/icons/hawcons/32/698927-icon-94-folder-64.png" alt="">
+                        </div>
+                        <span>
+                            {{name}}
+                        </span>
+                    </li>
+                </a>
+            {{else}}
+                <a class="item-link js-item-link" href="{{path}}" data-path="{{path}}" data-name="{{name}}" data-extension="{{extension}}">
+                    <li class="item">
+                        <div class="image-wrapper">
+                        </div>
+                        <span>
+                            {{name}}
+                        </span>
+                    </li>
+                </a>
+            {{/if}}
+        {{/each}}
+    </ul>
+
+
+{{/if}}
