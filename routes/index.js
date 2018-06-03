@@ -7,6 +7,8 @@ var fs = require('fs');
 router.get('/', function(req, res, next) {
 	const rootPath = req.app.get('PATH');
 
+	console.log('changing git');
+
 	if (!rootPath) {
 		res.render('index', {
 			title: 'Files explorer',
