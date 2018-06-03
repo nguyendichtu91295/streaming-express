@@ -28,7 +28,6 @@ let _PARAMS = minimist(process.argv.slice(2));
 app.set('PARAMS', _PARAMS);
 app.set('PATH', _PARAMS.path);
 app.use(express.static(_PARAMS.path));
-console.log('changing git');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
